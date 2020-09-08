@@ -32,10 +32,10 @@ namespace Tools.Extensions
             return first.Where(x => second.Count(y => comparer(x, y)) == 1);
         }
 
-        public static bool IsIn<T>(this T value, params T[] collection)
-        {
-            return collection.Contains(value);
-        }
+        public static bool IsIn<T>(this T value, params T[] collection) => collection.Contains(value);
+
+        public static bool In<T>(this T value, IEnumerable<T> collection) => collection.Contains(value);
+
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool IsIn<T>(this T value, T item1) where T : struct
         {
